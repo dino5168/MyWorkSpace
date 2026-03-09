@@ -1,0 +1,17 @@
+[project]
+name = "a01"
+version = "0.1.0"
+description = "My GIS Application"
+requires-python = ">=3.12"
+
+# 1. 必須在這裡宣告，專案才知道要安裝它
+dependencies = [
+    "config-base",
+    "pydantic-settings", # 如果 a01 直接用到 pydantic 功能也建議加上
+]
+
+[tool.uv.sources]
+# 2. 指定實體路徑。建議使用相對路徑。
+# 假設 a01 在 apps/a01，而 config-base 在 packages/config-base
+# 路徑應該是 ../../packages/config-base
+config-base = { workspace = true }

@@ -1,0 +1,25 @@
+[project]
+name = "myworkspace"
+version = "0.1.0"
+description = "My Python AI GIS Workspace" # 這裡可以自定義
+readme = "README.md"
+authors = [
+    { name = "dino5168", email = "dino@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic-settings>=2.13.1",
+]
+
+# --- 關鍵新增部分：定義工作區成員 ---
+[tool.uv.workspace]
+members = [
+    "apps/*",
+    "packages/*",
+]
+
+
+
+# 關鍵修正：告訴 uv 去工作區找，不要自己對外找路徑
+
+# --- 如果根目錄不打算當作函式庫發布，可以移除 build-system ---
